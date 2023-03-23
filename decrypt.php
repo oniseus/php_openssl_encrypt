@@ -1,3 +1,4 @@
+<?php
 function decryptPdf($sourceFile, $password) {
     $cipher = 'AES-256-CBC';
     $key = substr(hash('sha256', $password, true), 0, 32);
@@ -12,3 +13,5 @@ $decryptedData = decryptPdf('example-encrypted.pdf', 'my_password');
 header('Content-type: application/pdf');
 header('Content-Disposition: inline; filename="example.pdf"');
 echo $decryptedData;
+
+?>
